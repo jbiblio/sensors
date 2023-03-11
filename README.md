@@ -54,3 +54,7 @@ If anything is fine, you may want to setup startup on boot time. Consult the doc
 - Mosquitto: http://localhost:1883
 
 Adjust the host name or IP address to your needs. For example, the Tasmota devices pushes to mosquitto directly and must be configured for its host and port.
+
+# TODOs
+- Import more values from Vaillant
+- Integrate weather sensors (Ecowitt)
