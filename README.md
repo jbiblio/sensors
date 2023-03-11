@@ -10,10 +10,10 @@ The sensors are:
 - a Vaillant heating system, based on a heat pump with a hot water reservoir
 - some smart smart plugs from Gosund running Tasmota with power measurment.
 
-All sensors dump their measurements via MQTT into an Influx2DB, which is than queried by Grafana.
+All sensors dump their measurements via MQTT or Prometheus endpoint into an Influx2DB, which is than queried by Grafana.
 
 ## Zigbee sensors
-To connect the Zigbee sensors to MQTT, we need a ConBee II USB adapter from Phoscon, as well as the ConBee software.
+To collect information from the Zigbee/Aqara sensors to InfluxDB2, we need a ConBee II USB adapter from Phoscon, as well as the ConBee software.
 
 The installation is inspired by https://github.com/deconz-community/deconz-docker.
 
@@ -21,7 +21,8 @@ Connecting the Aquara sensors might be a bit tedious, but should not be a big pr
 
 ConBee is some kind of Home Automation Software on its own.
 
-To export the values from ConBee to MQTT, the `deconz-exporter` from https://github.com/KartoffelToby/deconz-exporter is needed. I forked it into https://github.com/jbiblio/deconz-exporter to be able to update the Go SDK.
+To export the values from ConBee, the `deconz-exporter` from https://github.com/KartoffelToby/deconz-exporter is needed. It publishes the values via Prometheus metrics endpoint.
+I forked it into https://github.com/jbiblio/deconz-exporter to be able to update the Go SDK.
 
 You must build the Docker image.
 
