@@ -21,7 +21,7 @@ services:
     restart: always
     container_name: telegraf
     ports:
-      - "7800:7800" # for upload from ecowitt
+      - "7080:7080" # for upload from ecowitt
     links:
       - influxdb2
       - mosquitto
