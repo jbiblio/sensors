@@ -20,6 +20,8 @@ services:
     image: telegraf:latest
     restart: always
     container_name: telegraf
+    ports:
+      - "7800:7800" # for upload from ecowitt
     links:
       - influxdb2
       - mosquitto
