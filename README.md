@@ -31,6 +31,17 @@ To be able to acquire values from a Vaillant system, you need to connect to its 
 
 The values from the eBUS are translated into JSON and pushed via MQTT by https://github.com/john30/ebusd.
 
+## Smart Plugs
+I started with some Gosund SP1 and Nous A1 and flashed them with Tasmia via tuya-convert. That's OK, only 1 brick so far...
+
+Shelly Plugs works better, IMHO.
+
+To set DST on Tasmota to Europa's toggle dates, enter the command
+```
+Backlog TimeSTD 0, 0, 10, 1, 3, 60; TimeDST 0, 0, 3, 1, 2, 120; timezone 99; Latitude 52.31; Longitude 13.24; time
+```
+Replace the coordinates with your home base.
+
 ## Visualization
 As said before, all values are transmitted via MQTT.
 
