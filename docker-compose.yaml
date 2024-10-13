@@ -23,8 +23,9 @@ services:
     links:
       - influxdb2
       - mosquitto
-    environment:
-      - INFLUX_TOKEN=bvMyKXupEW9_ffT-30qHv7pB-3ssTh3naozJdr9fuiWwxZkik8QKimeWa2-SzdhO3M4K4Qy_usBm_b0JF9aQuA==
+    env_file:
+      - path: secrets.env
+        required: true
     volumes:
       - ./telegraf.conf:/etc/telegraf/telegraf.conf:ro
 
@@ -81,8 +82,10 @@ services:
     restart: always
     ports:
       - 9100:9100
+    env_file:
+      - path: secrets.env
+        required: true
     environment:
-      - DECONZ_TOKEN=D32323135D
       - DECONZ_PORT=80
       - DECONZ_HOST=deconz
       - DECONZ_APP_PORT=9100
